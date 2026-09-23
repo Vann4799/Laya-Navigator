@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.env
+*.secret.json
+
+# Downloaded/raw data and local artifacts
+dataset/raw/*
+dataset/processed/*
+dataset/transitions/*
+dataset/states/*
+dataset/goals/*
+dataset/graphs/*
+training/checkpoints/*
+training/adapters/*
+benchmark/reports/*
+
+# Keep directory markers
+!.gitkeep
+
+.vscode/
+.idea/

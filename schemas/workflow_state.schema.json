@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Vann4799/laya-navigator/schema/workflow-state.json",
+  "title": "Laya Navigator Workflow State",
+  "type": "object",
+  "required": ["app", "route", "page_title", "visible_elements", "history"],
+  "properties": {
+    "state_id": {"type": "string"},
+    "app": {"type": "string", "minLength": 1},
+    "workflow": {"type": "string"},
+    "route": {"type": "string", "minLength": 1},
+    "page_title": {"type": "string"},
+    "auth_state": {"type": "string", "enum": ["unknown", "anonymous", "authenticated"]},
+    "visible_elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "name"],
+        "properties": {
+          "role": {"type": "string"},
+          "name": {"type": "string"},
+          "actionable": {"type": "boolean"},
+          "required": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "form_fields": {"type": "array", "items": {"type": "string"}},
+    "history": {"type": "array", "items": {"type": "string"}},
+    "event_log": {"type": "array", "items": {"type": "string"}},
+    "last_action": {"type": ["string", "null"]},
+    "errors": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
