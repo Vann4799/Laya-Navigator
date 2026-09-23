@@ -16,6 +16,7 @@ dataset/graphs/*
 training/checkpoints/*
 training/adapters/*
 benchmark/reports/*
+!benchmark/reports/*.json
 
 # Keep directory markers
 !.gitkeep

@@ -1,0 +1,21 @@
+{
+  "records": 10,
+  "metrics": {
+    "page_state": {
+      "correct": 6,
+      "total": 10,
+      "accuracy": 0.6
+    },
+    "goal": {
+      "correct": 9,
+      "total": 10,
+      "accuracy": 0.9
+    },
+    "next_action": {
+      "correct": 7,
+      "total": 10,
+      "accuracy": 0.7
+    }
+  },
+  "model": "convaiinnovations/laya"
+}
