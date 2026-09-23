@@ -1,0 +1,17 @@
+{
+  "source": "osunlp/Mind2Web",
+  "source_license": "CC-BY-4.0",
+  "source_url": "https://huggingface.co/datasets/osunlp/Mind2Web",
+  "shard": "train_0",
+  "trajectory_limit": 1000,
+  "trajectories_normalized": 100,
+  "transition_records": 774,
+  "unique_apps": 38,
+  "action_distribution": {
+    "click_element": 629,
+    "type_text": 106,
+    "select_option": 23,
+    "hover": 16
+  },
+  "raw_data_policy": "raw and processed dataset files remain local and are not redistributed in this repository"
+}
