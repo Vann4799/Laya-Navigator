@@ -6,7 +6,10 @@
   "trajectory_limit": 1000,
   "trajectories_normalized": 100,
   "transition_records": 774,
+  "target_labeled_records": 707,
+  "operation_only_records": 67,
   "unique_apps": 38,
+  "candidate_elements_present": 774,
   "action_distribution": {
     "click_element": 629,
     "type_text": 106,
