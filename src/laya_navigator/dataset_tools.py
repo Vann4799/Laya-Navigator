@@ -17,8 +17,9 @@ PAGE_STATES = {
     "cv_uploaded",
     "success",
     "error",
+    "workflow_step",
 }
-GOALS = {"login_user", "apply_job", "upload_cv", "submit_application"}
+GOALS = {"login_user", "apply_job", "upload_cv", "submit_application", "complete_task"}
 ACTIONS = {
     "click_login",
     "submit_login",
@@ -27,6 +28,12 @@ ACTIONS = {
     "upload_cv",
     "submit_application",
     "retry_action",
+    "click_element",
+    "type_text",
+    "select_option",
+    "press_key",
+    "scroll",
+    "hover",
 }
 
 _TEMPLATES = [
