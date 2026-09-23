@@ -1,0 +1,7 @@
+{
+  "model": "convaiinnovations/laya",
+  "dataset": "osunlp/Mind2Web",
+  "records": 25,
+  "next_action_correct": 11,
+  "next_action_accuracy": 0.44
+}
