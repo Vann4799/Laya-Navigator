@@ -7,7 +7,9 @@
   "trajectories_normalized": 100,
   "transition_records": 774,
   "target_labeled_records": 707,
+  "training_format_rows": 345,
   "operation_only_records": 67,
+  "target_match_skipped": 362,
   "unique_apps": 38,
   "candidate_elements_present": 774,
   "action_distribution": {
