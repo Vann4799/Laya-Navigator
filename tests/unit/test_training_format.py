@@ -47,6 +47,27 @@ class TrainingFormatTests(unittest.TestCase):
         }
         self.assertIsNone(build_training_row(record))
 
+    def test_large_candidate_list_keeps_target_without_forcing_last_slot(self):
+        candidates = [
+            {"role": "button", "name": f"Option {i}"}
+            for i in range(50)
+        ]
+        record = {
+            "id": "large-candidates",
+            "app": "demo",
+            "state": {"visible_elements": candidates},
+            "label": {
+                "operation": "click_element",
+                "target_element": {"role": "button", "name": "Option 47"},
+            },
+        }
+        row = build_training_row(record, max_candidates=10)
+        self.assertIsNotNone(row)
+        options = row["questions"]["target_element"]["criteria"]
+        target = row["gold"]["target_element"]["choice"]
+        self.assertEqual(len(options), 10)
+        self.assertIn(target, options)
+
 
 if __name__ == "__main__":
     unittest.main()

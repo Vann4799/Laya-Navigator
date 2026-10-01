@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import random
 import re
 from typing import Any
 
@@ -24,7 +25,7 @@ def _one_hot(options: list[str], selected: str) -> dict[str, float]:
     return {option: 1.0 if option == selected else 0.0 for option in options}
 
 
-def build_training_row(record: dict[str, Any], max_candidates: int = 64) -> dict[str, Any] | None:
+def build_training_row(record: dict[str, Any], max_candidates: int = 40) -> dict[str, Any] | None:
     """Move DOM candidates into a typed choice question and create gold targets."""
     state = record.get("state") or {}
     label = record.get("label") or {}
@@ -61,10 +62,15 @@ def build_training_row(record: dict[str, Any], max_candidates: int = 64) -> dict
     if target_index is None:
         return None
 
-    selected = list(candidates[:max_candidates])
-    if target_index >= max_candidates:
-        selected = selected[:-1] + [candidates[target_index]]
-        target_index = max_candidates - 1
+    selected_indices = list(range(len(candidates)))
+    if len(candidates) > max_candidates:
+        rng = random.Random(str(record.get("id", "")))
+        other_indices = [index for index in selected_indices if index != target_index]
+        keep = {target_index}
+        keep.update(rng.sample(other_indices, max_candidates - 1))
+        selected_indices = sorted(keep)
+    selected = [candidates[index] for index in selected_indices]
+    target_index = selected_indices.index(target_index)
     options = {
         f"e{index}": f"[{candidate.get('role', 'unknown')}] {candidate.get('name', '')}"
         for index, candidate in enumerate(selected)
